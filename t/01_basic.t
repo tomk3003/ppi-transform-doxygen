@@ -2,9 +2,7 @@ use strict;
 use warnings;
 
 use Test::More;
-use YAML qw(Dump);
 use FindBin qw($Bin);
-
 
 BEGIN {
     push @INC, "$Bin/../lib";
