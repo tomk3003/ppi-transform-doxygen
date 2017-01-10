@@ -451,6 +451,10 @@ sub _integrate_sub_info {
 
 Thomas Kratz E<lt>tomk@cpan.orgE<gt>
 
+=head1 REPOSITORY
+
+L<https://github.com/tomk3003/ppi-transform-doxygen>
+
 =head1 COPYRIGHT
 
 Copyright 2016 Thomas Kratz.
