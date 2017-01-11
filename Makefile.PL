@@ -11,7 +11,7 @@ WriteMakefile(
   AUTHOR           => 'Thomas Kratz <tomk@cpan.org>',
   LICENSE          => 'artistic_2',
   MIN_PERL_VERSION => 5.010001, 
-
+  EXE_FILES        => ['script/ppi_transform_doxygen'],
   PREREQ_PM        =>  {
     'PPI' => '1.220',
     'Pod::POM' => '2.01',
