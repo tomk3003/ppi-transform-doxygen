@@ -153,7 +153,7 @@ use Params::Util qw{_INSTANCE};
 
 #use YAML qw(Dump);
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 my %vtype = qw(% hash @ array $ scalar & func * glob);
 
