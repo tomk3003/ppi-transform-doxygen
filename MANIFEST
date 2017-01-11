@@ -5,5 +5,5 @@ MANIFEST
 MANIFEST.SKIP
 lib/PPI/Transform/Doxygen.pm
 lib/PPI/Transform/Doxygen/POD.pm
-script/ppi_transform_doxygen
+bin/ppi_transform_doxygen
 t/01_basic.t
