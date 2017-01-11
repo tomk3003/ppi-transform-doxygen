@@ -21,7 +21,7 @@ PPI::Transform::Doxygen - PPI::Transform class for generating Doxygen input
 
 =head1 DESCRIPTION
 
-This module is normally used by the script b<ppi_transform_doxygen> that is
+This module is normally used by the script B<ppi_transform_doxygen> that is
 part of this distribution and acts as a doxygen input filter (look for
 B<INPUT_FILTER> in the Doxygen docs).
 
@@ -74,7 +74,7 @@ doxygen docs. Look under L</DETAILS ON TOP> on how to do that.
 
 The complete syntax of a =head2 function description is:
 
-C<<=head2 [<category>] [<return_value>] <name>(<parameters>)>>
+C<< =head2 [<category>] [<return_value>] <name>(<parameters>) >>
 
 =over
 
@@ -125,8 +125,8 @@ Create a doxygen layout XML file with C<doxygen -l>
 
 =item 2.
 
-Move C<< <detaileddescription title=""/> >> up to the line directly behind
-C<< <briefdescription visible="yes"/> >>
+Edit the XML file. Move C<< <detaileddescription title=""/> >> up to the
+line directly behind C<< <briefdescription visible="yes"/> >>
 
 =item 3.
 
