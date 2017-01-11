@@ -1,0 +1,9 @@
+Changes
+LICENSE
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+lib/PPI/Transform/Doxygen.pm
+lib/PPI/Transform/Doxygen/POD.pm
+scripts/ppi_transform_doxygen
+t/01_basic.t
