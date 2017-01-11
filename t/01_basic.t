@@ -17,9 +17,42 @@ open(my $out, '>', \my $buf);
 
 $tr->file($0 => $out);
 
-like($buf, qr/DESCRIPTION/);
+#diag($buf);
+
+my $fhead = quotemeta('/** @file 01_basic.t');
+my($fcontent) = $buf =~ m!$fhead\n(.+?)\*/!s;
+
+isnt($fcontent, undef, 'file section');
+
+like($fcontent, qr!\@section DESCRIPTION DESCRIPTION\n<p>txt1</p>!, 'head1');
+
+my $chead = quotemeta('class 01_basic_main: public {');
+my($ccontent) = $buf =~ m!$chead\n(.+?)\};!s;
+
+isnt($ccontent, undef, 'class section');
+
+my($cpublic, $cprivate) = $ccontent =~ m!public:(.+)private:(.+)$!s;
+
+isnt($cpublic, undef, 'public section');
+isnt($cprivate, undef, 'private section');
+
+my $fn = quotemeta('virtual void a_func()');
+
+like($cpublic, qr!\*\*\ \@fn\ $fn\n.+\*/\n$fn;\n!s, 'a_func');
+
+like($cprivate, qr/^\s*$/, 'only public');
 
 done_testing();
+
+=head2 class_method $obj new(%args)
+
+Creates a new THINGY object
+
+=cut
+sub new {
+    my($class, %args) = @_;
+    return bless(\%args, $class);
+}
 
 __END__
 
@@ -27,10 +60,13 @@ __END__
 
 =head1 DESCRIPTION
 
-Basic POD for first test
-
-=head2 a_function()
-
-Docs for a_function()
+txt1
 
 =cut
+
+=head2 a_func()
+
+txt_a_func()
+
+=cut
+

@@ -38,9 +38,7 @@ sub view_verbatim {
     return "<pre>$text</pre>\n\n";
 }
 
-
-
-return 1;
+1;
 
 __END__
 
