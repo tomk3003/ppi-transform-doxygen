@@ -333,7 +333,8 @@ sub _parse_packages_subs {
         $pkg_subs{'!main'}{used} = _get_used_modules($doc);
     }
 
-    for my $sub_node ( @{ $doc->find('PPI::Statement::Sub') } ) {
+    my $sub_nodes = $doc->find('PPI::Statement::Sub') || [];
+    for my $sub_node ( @$sub_nodes ) {
         my $node = $sub_node;
         my $pkg  = '!main';
         while ($node) {
@@ -440,6 +441,8 @@ sub _parse_pod {
     my %subs;
 
     my $pod_tokens = $doc->find('PPI::Token::Pod');
+
+    return '', \%subs unless $pod_tokens;
 
     for my $tok ( @$pod_tokens ) {
         ( my $quoted = $tok->content() ) =~ s/(\@|\\|\%|#)/\\$1/g;

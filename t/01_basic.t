@@ -3,6 +3,7 @@ use warnings;
 
 use Test::More;
 use FindBin qw($Bin);
+use Fcntl qw(:seek);
 
 BEGIN {
     push @INC, "$Bin/../lib";
@@ -14,6 +15,14 @@ BEGIN {
 my $tr = new_ok('PPI::Transform::Doxygen');
 
 open(my $out, '>', \my $buf);
+
+$tr->file("$Bin/../Makefile.PL" => $out);
+
+like($buf, qr/class\ Makefile_main:\ public/, 'no pod');
+
+seek($out, 0, SEEK_SET);
+
+#diag $buf;
 
 $tr->file($0 => $out);
 
