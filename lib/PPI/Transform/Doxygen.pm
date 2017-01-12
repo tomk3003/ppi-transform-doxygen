@@ -86,8 +86,8 @@ as B<static> for Doxygen. Other values will be ignored.
 
 =item return_value (optional)
 
-Since Doxygen expects C++ input a return value is mandatory and will
-default to B<void>. A gives string will be passed to Doxygen as is, so be
+Since Doxygen expects C++ input, a return value is mandatory and will
+default to B<void>. A given string will be passed to Doxygen as is, so be
 careful with non word characters.
 
 =item name
