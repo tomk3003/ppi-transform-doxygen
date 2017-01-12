@@ -99,9 +99,14 @@ given. If your code is correctly parsable with PPI, then this should work.
 If the corresponding subroutine is not found it will be tagged as B<virtual>
 to Doxygen. This is useful for dynamically generated functions (e.g via
 AUTOLOAD). Yes this has nothing to do with the C++ virtual keyword, but so
-what?
+what? If you want to have the virtual subroutine mapped to the correct
+namespace you will have to add it to the subs name
+(e.g. C< MyClass::mysub() >)
 
-If there is no package declaration or the subroutine is created in the main
+Subroutine names with leading underscore will be tagged as B<private>
+for Doxygen.
+
+If there is no package declaration, the subroutine is created in the main
 namespace, named C<< <script_or_module_name>_main >>.
 
 =item parameters
