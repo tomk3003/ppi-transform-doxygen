@@ -488,7 +488,9 @@ sub _sub_extract {
     my($long, $params) = $fstr =~ /^([\w:]+)\(([^\)]*)\)$/;
     return unless $long;
 
-    my $rv  = pop(@parts) || 'void';
+    my $rv = pop(@parts) || 'void';
+    $rv =~ s/(\%|\@|\&)/\\$1/g;
+
     my $cat = pop(@parts) || '';
 
     my @params = _add_type($params);
