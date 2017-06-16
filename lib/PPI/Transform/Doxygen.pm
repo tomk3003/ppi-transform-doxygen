@@ -236,7 +236,7 @@ sub file {
 =head2 document($ppi_doc, $preserve)
 
 This is normally called by C<file()> (see the docs for
-L<PPI::Transform::Doxygen>). It will convert a PPI::Document object
+L<PPI::Transform>). It will convert a PPI::Document object
 in place.
 
 =cut
