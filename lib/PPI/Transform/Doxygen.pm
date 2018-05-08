@@ -21,7 +21,7 @@ PPI::Transform::Doxygen - PPI::Transform class for generating Doxygen input
 
 =head1 DESCRIPTION
 
-This module is normally used by the script B<ppi_transform_doxygen> that is
+This module is normally used by the script L<ppi_transform_doxygen> that is
 part of this distribution and acts as a doxygen input filter (look for
 B<INPUT_FILTER> in the Doxygen docs).
 
@@ -118,10 +118,34 @@ be given as C<type name> to Doxygen e.g. C<subname(hash_ref varname)>.
 
 =back
 
+=head1 SIGNATURES
+
+If you are using subroutine signatures, they will be parsed for information
+and you can put the pod after the sub declaration like so:
+
+    sub my_sig_sub ($self, $first = 'default', $second=[], %args) {
+    =for method $self
+
+    Sub documentation.
+
+    =cut
+
+        print join(' ', $first, @$second), "\n";
+        return $self;
+    }
+
+In that case there is no redundant information you'll have to synchronize on
+each change.
+In that case the first parameter behind the B<=for> has to be C<method>,
+C<function> or C<class_method>. The second parameter specifies the return
+value.
+A conflicting B<=head2> declaration for the same subroutine will take
+precedence.
+
 =head1 DETAILS ON TOP
 
-For having the POD documentation at the top of the Doxygen page do the
-following:
+For having the non subroutine POD documentation at the top of the Doxygen
+page do the following:
 
 =over
 
@@ -156,8 +180,6 @@ use Pod::POM;
 use Pod::POM::View::Text;
 use PPI::Transform::Doxygen::POD;
 use Params::Util qw{_INSTANCE};
-
-use YAML qw(Dump);
 
 our $VERSION = '0.3';
 

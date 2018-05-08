@@ -50,3 +50,20 @@ method test2
     return $self;
 }
 
+=head2 $self test3 ($self, $xxx)
+
+method test3 head2
+
+=cut
+
+sub test3 ($self, $first = 'default') {
+=for method $self
+
+method test3 inline
+
+=cut
+
+    print join(' ', $self->{name}, $first), "\n";
+    return $self;
+}
+

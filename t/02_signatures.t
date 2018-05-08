@@ -19,7 +19,7 @@ open(my $out, '>', \my $buf);
 
 $tr->file("$Bin/TestSigs.txt" => $out);
 
-#diag $buf;
+diag $buf;
 
 my $fhead = quotemeta('/** @file TestSigs.txt');
 my($fcontent) = $buf =~ m!$fhead\n(.+?)\*/!s;
@@ -94,6 +94,10 @@ my %test = (
                 q(Default value for $first is 'default'.),
                 q(Default value for $second is [].),
             ],
+        },
+        {
+            head => '** @fn $self test3(scalar self, scalar xxx)',
+            text => 'method test3 head2',
         },
     ],
     private => [
