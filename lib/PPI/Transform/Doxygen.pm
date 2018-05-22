@@ -181,7 +181,7 @@ use Pod::POM::View::Text;
 use PPI::Transform::Doxygen::POD;
 use Params::Util qw{_INSTANCE};
 
-our $VERSION = '0.3';
+our $VERSION = '0.31';
 
 my %vtype = qw(% hash @ array $ scalar & func * glob);
 
@@ -288,13 +288,15 @@ sub document {
         my $short     = pop @parts;
         my $namespace = join( '::', @parts ) || '';
 
+        warn "$pname, $short, $fname, $pod_txt\n";
+
         $dxout .= _out_class_begin(
             $pname, $short, $namespace, $fname,
             $pkg_subs->{$pname}{inherit},
             $pkg_subs->{$pname}{used},
             $pkg_subs->{$pname}{version},
             $pkg_subs->{$pname}{revision},
-            $pname eq $fname ? $pod_txt : '',
+            $short eq $fname ? $pod_txt : '',
         );
 
         $dxout .= _out_process_subs( $pname, $pkg_subs, $sub_info );
