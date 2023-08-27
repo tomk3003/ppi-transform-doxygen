@@ -9,7 +9,7 @@ use Fcntl qw(:seek);
 BEGIN {
     unshift @INC, "$Bin/../lib";
     for my $mod ('PPI', 'PPI::Transform::Doxygen') {
-        use_ok($mod, "load $mod") or BAIL_OUT("cannot load $mod");
+        use_ok($mod) or BAIL_OUT("cannot load $mod");
     }
 };
 
